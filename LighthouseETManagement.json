@@ -1,0 +1,80 @@
+{
+  "customer_id": 0,
+  "ticket_type_id": 0,
+  "number": "string",
+  "subject": "string",
+  "problem_type": "string",
+  "status": "string",
+  "properties": {},
+  "asset_ids": [
+    0
+  ],
+  "sla_id": 0,
+  "comments_attributes": [
+    {
+      "subject": "string",
+      "body": "string",
+      "hidden": true,
+      "do_not_email": true
+    }
+  ]
+}
+
+
+{
+  "tickets": [
+    {
+      "id": 83185563,
+      "number": 28721,
+      "subject": "New user",
+      "created_at": "2024-06-27T11:52:32.599+08:00",
+      "customer_id": 13494240,
+      "customer_business_then_name": "Elliotts Tech",
+      "due_date": "2024-06-28T11:52:33.000+08:00",
+      "resolved_at": null,
+      "start_at": null,
+      "end_at": null,
+      "location_id": null,
+      "problem_type": "All",
+      "status": "New",
+      "ticket_type_id": 44497,
+      "properties": {
+        "Email": "",
+        "Phone": "",
+        "Position": "",
+        "Full name": ""
+      },
+      "user_id": 32563,
+      "updated_at": "2024-06-27T11:52:32.767+08:00",
+      "pdf_url": null,
+      "priority": "2 Normal",
+      "comments": [
+        {
+          "id": 303031925,
+          "created_at": "2024-06-27T11:52:32.557+08:00",
+          "updated_at": "2024-06-27T11:52:32.604+08:00",
+          "ticket_id": 83185563,
+          "subject": "Initial Issue",
+          "body": "New User Issue Description",
+          "tech": "Dean Elliott",
+          "hidden": false,
+          "user_id": 32563
+        }
+      ],
+      "user": {
+        "id": 32563,
+        "email": "dean@elliotts.tech",
+        "full_name": "Dean Elliott",
+        "created_at": "2016-06-17T07:52:12.686+08:00",
+        "updated_at": "2024-06-27T10:27:03.552+08:00",
+        "group": "Admins",
+        "admin?": true,
+        "color": "0D76FF"
+      }
+    }
+  ],
+  "meta": {
+    "total_pages": 1,
+    "page": 1
+  }
+}
