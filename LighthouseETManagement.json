@@ -3,16 +3,32 @@
   "contentVersion": "1.0.0.0",
   "parameters": {
     "mspOfferName": {
+      "type": "string",
+      "metadata": {
+                "description": "Specify a unique name for your offer"
+            },
       "value": "ET Management"
     },
     "mspOfferDescription": {
+      "type": "string",
+      "metadata": {
+                "description": "Specify a unique name for your offer"
+            },
       "value": "ET Management"
     },
     "managedByTenantId": {
+      "type": "string",
+      "metadata": {
+           "description": "Specify a tenant ID for your offer"
+            },
       "value": "b9db5422-c7ea-4ae9-a9ba-201d6a887231"
     },
     "authorizations": {
-      "value": [
+      "type": "array",
+      "metadata": {
+            "description": "Specify an array of objects, containing tuples of Azure Active Directory principalId, a Azure roleDefinitionId, and an optional principalIdDisplayName. The roleDefinition specified is granted to the principalId in the provider's Active Directory and the principalIdDisplayName is visible to customers.",
+      },
+        "value": [
         {
           "principalId": "665dd58d-f352-4547-9070-1b628577c0f6",
           "roleDefinitionId": "ab8e14d6-4a74-4a29-9ba8-549422addade",
