@@ -26,9 +26,9 @@
     "authorizations": {
       "type": "array",
       "metadata": {
-            "description": "Specify an array of objects, containing tuples of Azure Active Directory principalId, a Azure roleDefinitionId, and an optional principalIdDisplayName. The roleDefinition specified is granted to the principalId in the provider's Active Directory and the principalIdDisplayName is visible to customers."
+          "description": "Specify an array of objects, containing tuples of Azure Active Directory principalId, a Azure roleDefinitionId, and an optional principalIdDisplayName. The roleDefinition specified is granted to the principalId in the provider's Active Directory and the principalIdDisplayName is visible to customers."
       },
-        "value": [
+      "items": [
         {
           "principalId": "665dd58d-f352-4547-9070-1b628577c0f6",
           "roleDefinitionId": "ab8e14d6-4a74-4a29-9ba8-549422addade",
