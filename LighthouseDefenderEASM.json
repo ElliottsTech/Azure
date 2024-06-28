@@ -30,6 +30,11 @@
     "principalId": "fdf0dca4-d3b7-4c11-97a5-21c92ad592db",
     "roleDefinitionId": "acdd72a7-3385-48ef-bd42-f606fba81ae7",
     "principalIdDisplayName": "AZ ET Defender EASM"
+   },
+   {
+    "principalId":"665dd58d-f352-4547-9070-1b628577c0f6",
+    "roleDefinitionId":"ab8e14d6-4a74-4a29-9ba8-549422addade",
+    "principalIdDisplayName":"Sentinel_contributor"
    }
   ],
   "eligibleAuthorizations": [
@@ -40,7 +45,7 @@
      "managedByTenantApprovers": []
     },
     "principalId": "db2048b5-91cb-411c-a4ca-428c0a2e668c",
-    "principalIdDisplayName": "AZ ET Subscription Owner",
+    "principalIdDisplayName": "AZ ET Subscription Contributor",
     "roleDefinitionId": "b24988ac-6180-42a0-ab88-20f7382dd24c"
    }
   ]
@@ -84,7 +89,18 @@
      ]
     }
    }
-  }
+  },
+        {
+            "type": "Microsoft.ManagedServices/registrationAssignments",
+            "apiVersion": "2019-09-01",
+            "name": "[variables('mspAssignmentName')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.ManagedServices/registrationDefinitions/', variables('mspRegistrationName'))]"
+            ],
+            "properties": {
+                "registrationDefinitionId": "[resourceId('Microsoft.ManagedServices/registrationDefinitions/', variables('mspRegistrationName'))]"
+            }
+        }
  ],
  "outputs": {
   "mspOfferName": {
