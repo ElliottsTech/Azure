@@ -1,0 +1,103 @@
+{
+ "$schema": "https://schema.management.azure.com/schemas/2019-08-01/subscriptionDeploymentTemplate.json#",
+ "contentVersion": "1.0.0.0",
+ "parameters": {
+  "mspOfferName": {
+   "type": "string",
+   "metadata": {
+    "description": "Specify a unique name for your offer"
+   },
+   "defaultValue": "ET AZ EASM Management"
+  },
+  "mspOfferDescription": {
+   "type": "string",
+   "metadata": {
+    "description": "Name of the Managed Service Provider offering"
+   },
+   "defaultValue": "Elliotts Tech Defender EASM Management "
+  },
+  "rgName": {
+   "type": "string",
+   "defaultValue": "*-DefenderEASM"
+  }
+ },
+ "variables": {
+  "mspRegistrationName": "[guid(parameters('mspOfferName'))]",
+  "mspAssignmentName": "[guid(parameters('mspOfferName'))]",
+  "managedByTenantId": "b9db5422-c7ea-4ae9-a9ba-201d6a887231",
+  "authorizations": [
+   {
+    "principalId": "fdf0dca4-d3b7-4c11-97a5-21c92ad592db",
+    "roleDefinitionId": "acdd72a7-3385-48ef-bd42-f606fba81ae7",
+    "principalIdDisplayName": "AZ ET Defender EASM"
+   }
+  ],
+  "eligibleAuthorizations": [
+   {
+    "justInTimeAccessPolicy": {
+     "multiFactorAuthProvider": "Azure",
+     "maximumActivationDuration": "PT8H",
+     "managedByTenantApprovers": []
+    },
+    "principalId": "db2048b5-91cb-411c-a4ca-428c0a2e668c",
+    "principalIdDisplayName": "AZ ET Subscription Owner",
+    "roleDefinitionId": "b24988ac-6180-42a0-ab88-20f7382dd24c"
+   }
+  ]
+ },
+ "resources": [
+  {
+   "type": "Microsoft.ManagedServices/registrationDefinitions",
+   "apiVersion": "2020-02-01-preview",
+   "name": "[variables('mspRegistrationName')]",
+   "properties": {
+    "registrationDefinitionName": "[parameters('mspOfferName')]",
+    "description": "[parameters('mspOfferDescription')]",
+    "managedByTenantId": "[variables('managedByTenantId')]",
+    "authorizations": "[variables('authorizations')]",
+    "eligibleAuthorizations": "[variables('eligibleAuthorizations')]"
+   }
+  },
+  {
+   "type": "Microsoft.Resources/deployments",
+   "apiVersion": "2018-05-01",
+   "name": "rgAssignment",
+   "resourceGroup": "[parameters('rgName')]",
+   "dependsOn": [
+    "[resourceId('Microsoft.ManagedServices/registrationDefinitions/', variables('mspRegistrationName'))]"
+   ],
+   "properties": {
+    "mode": "Incremental",
+    "template": {
+     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+     "contentVersion": "1.0.0.0",
+     "parameters": {},
+     "resources": [
+      {
+       "type": "Microsoft.ManagedServices/registrationAssignments",
+       "apiVersion": "2020-02-01-preview",
+       "name": "[variables('mspAssignmentName')]",
+       "properties": {
+        "registrationDefinitionId": "[resourceId('Microsoft.ManagedServices/registrationDefinitions/', variables('mspRegistrationName'))]"
+       }
+      }
+     ]
+    }
+   }
+  }
+ ],
+ "outputs": {
+  "mspOfferName": {
+   "type": "string",
+   "value": "[concat('Managed by', ' ', parameters('mspOfferName'))]"
+  },
+  "authorizations": {
+   "type": "array",
+   "value": "[variables('authorizations')]"
+  },
+  "eligibleAuthorizations": {
+   "type": "array",
+   "value": "[variables('eligibleAuthorizations')]"
+  }
+ }
+}
