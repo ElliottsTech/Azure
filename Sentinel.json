@@ -6,7 +6,7 @@
         "config": {
             "isWizard": false,
             "basics": {
-                "description": "**Microsoft Sentinel All-In-One** deployment, see more information about this project [here](https://github.com/Azure/Azure-Sentinel/Tools/Sentinel-All-In-One/).",
+                "description": "**Elliotts Tech Microsoft Sentinel All-In-One** deployment.",
                 "location": {
                     "label": "Location",
                     "toolTip": "Location for all resources",
@@ -21,13 +21,13 @@
                 "name": "rgName",
                 "type": "Microsoft.Common.TextBox",
                 "label": "Resource Group name",
-                "placeholder": "",
-                "defaultValue": "",
+                "placeholder": "AAA-Sentinel",
+                "defaultValue": "AAA-Sentinel",
                 "toolTip": "Enter a resource group name",
                 "constraints": {
                     "required": true,
                     "regex": "^[A-Za-z0-9][A-Za-z0-9-]+[A-Za-z0-9]$",
-                    "validationMessage": "Only alphanumeric characters are allowed, and the value must be 1-30 characters long."
+                    "validationMessage": "Type {client initials}-Sentinel"
                 },
                 "visible": true  
             },
@@ -35,13 +35,13 @@
                 "name": "workspaceName",
                 "type": "Microsoft.Common.TextBox",
                 "label": "Workspace Name",
-                "placeholder": "",
-                "defaultValue": "",
-                "toolTip": "The Workspace name should include 4-63 letters, digits or '-'. The '-' shouldn't be the first or the last symbol.",
+                "placeholder": "AAA-Sentinel",
+                "defaultValue": "AAA-Sentinel",
+                "toolTip": "Type {client initials}-Sentinel",
                 "constraints": {
                     "required": true,
                     "regex": "^[A-Za-z0-9][A-Za-z0-9-]+[A-Za-z0-9]$",
-                    "validationMessage": "Only alphanumeric characters are allowed, and the value must be 1-30 characters long."
+                    "validationMessage": "Type {client initials}-Sentinel"
                 },
                 "visible": true
             },
@@ -94,7 +94,7 @@
                     ],
                     "required": true
                 },
-                "visible": true
+                "visible": false
             },
             {
                 "name": "capacityReservation",
@@ -298,74 +298,24 @@
                   {
                     "name": "enableSolutionsEssentials",
                       "type": "Microsoft.Common.DropDown",
-                      "label": "Select Essentials Content Hub solutions to install",
+                      "label": "ET Default Content Hub solutions to install",
                       "placeholder": "",
                       "multiselect": true,
                       "filter": true,
-                      "filterPlaceholder": "Filter items ...",
+                      "filterPlaceholder": "ET MSP will Select All ...",
                       "multiLine": true,
                       "defaultDescription": "A value for selection",
-                      "toolTip": "Select essentials solutions that you would like to install",
+                      "toolTip": "Select All",
                       "constraints": {
                           "allowedValues": [
                             {
-                                "label": "Attacker Tools Threat Protection Essentials",
-                                "description": "The Attacker Tools Threat Protection Essentials solution contains security content that is relevant for detection of tools commonly used by attackers in various campaigns",
-                                "value": "Attacker Tools Threat Protection Essentials"
-                            },
-                            {
-                                "label": "Cloud Identity Threat Protection Essentials",
-                                "description": "The Cloud Identity Threat Protection Essentials solution looks for most common cloud focused identity attacks such as Suspicious Sign-ins, privilege grants, MFA disable etc.",
-                                "value": "Cloud Identity Threat Protection Essentials"
-                            },
-                            {
-                                "label": "Cloud Service Threat Protection Essentials",
-                                "description": "The Cloud Service Threat Protection Essentials contains security content that is relevant for detection of attacks against various cloud services like key vault, storage, compute etc.",
-                                "value": "Cloud Service Threat Protection Essentials"
-                            },
-                            {
-                                "label": "Endpoint Threat Protection Essentials",
-                                "description": "The Endpoint Threat Protection Essentials solution provides content to monitor, detect and investigate threats related to windows machines.",
-                                "value": "Endpoint Threat Protection Essentials"
-                            },
-                            {
-                                "label": "Network Session Essentials",
-                                "description": "The Network Session Essentials solution leverages the Advanced Security Information Model (ASIM) to correlate insights across 15+ networking data sources and deliver more value for SOC use cases with less content.",
-                                "value": "Network Session Essentials"
-                            }, 
-                            {
-                                "label": "Network Threat Protection Essentials",
-                                "description": "The Network Threat Protection Essentials solution contains queries that identifies suspicious network behavior based on various data sources ingested in Sentinel.",
-                                "value": "Network Threat Protection Essentials"
-                            },
-                            {
-                                "label": "SOC Handbook",
-                                "description": "The SOC Handbook solution for Microsoft Sentinel provides a collection of resources that enable and empower SOC Analysts to get better visibility and understanding of point-in-time security posture of organizational resources.",
-                                "value": "SOC Handbook"
-                            },
-                            {
-                                "label": "SOC Process Framework",
-                                "description": "The SOC Process Framework Solution is built in order to easily integrate with Microsoft Sentinel and build a standard SOC Process and Procedure Framework within your Organization.",
-                                "value": "SOC Process Framework"
-                            },
-                            {
-                                "label": "UEBA Essentials",
-                                "description": "The Sentinel UEBA content package will provide you with various queries based on UEBA tables, that allows you to hunt for tailored threat scenarios.",
-                                "value": "UEBA Essentials"
-                            },
-                            {
-                                "label": "Users searching for VIP user activity",
-                                "description": "The Users searching for VIP user activity solution helps detect and investigate suspicious search activity performed by VIP users.",
-                                "value": "Users searching for VIP user activity"
-                            },
-                            {
-                                "label": "Azure activity",
-                                "description": "The Azure activity solution provides insights into the activity logs of your Azure resources.",
-                                "value": "Azure activity"
+                                "label": "Azure Activity",
+                                "description": "The Azure Activity solution provides visibility into activities across your Azure resources.",
+                                "value": "Azure Activity"
                             },
                             {
                                 "label": "Microsoft Defender for Cloud",
-                                "description": "The Microsoft Defender for Cloud solution helps protect your cloud resources from threats and provides advanced threat detection and response capabilities.",
+                                "description": "",
                                 "value": "Microsoft Defender for Cloud"
                             },
                             {
@@ -377,6 +327,11 @@
                                 "label": "Microsoft Entra ID",
                                 "description": "The Microsoft Entra ID solution provides identity and access management capabilities to help secure your organization's resources.",
                                 "value": "Microsoft Entra ID"
+                            },
+                            {
+                                "label": "Network Session Essentials",
+                                "description": "The Network Session Essentials solution leverages the Advanced Security Information Model (ASIM) to correlate insights across 15+ networking data sources and deliver more value for SOC use cases with less content.",
+                                "value": "Network Session Essentials"
                             },
                             {
                                 "label": "Security Threat Essentials",
@@ -395,12 +350,12 @@
                             },
                             {
                                 "label": "Threat Intelligence",
-                                "description": "The Threat Intelligence solution provides insights and information about potential threats and vulnerabilities.",
+                                "description": "",
                                 "value": "Threat Intelligence"
                             },
                             {
                                 "label": "UEBA Essentials",
-                                "description": "The UEBA Essentials solution provides queries and analytics for User and Entity Behavior Analytics.",
+                                "description": "The Sentinel UEBA content package will provide you with various queries based on UEBA tables, that allows you to hunt for tailored threat scenarios.",
                                 "value": "UEBA Essentials"
                             },
                             {
@@ -414,9 +369,9 @@
                                 "value": "Analytics Health & Audit"
                             },
                             {
-                                "label": "Workspace usage report",
+                                "label": "Workspace Usage Report",
                                 "description": "The Workspace usage report solution generates a report on the usage of your workspaces.",
-                                "value": "Workspace usage report"
+                                "value": "Workspace Usage Report"
                             },
                             {
                                 "label": "AbuseIPDB",
@@ -444,33 +399,38 @@
                                 "value": "Azure Security Benchmark"
                             },
                             {
-                                "label": "Business Email compromise - Financial fraud",
-                                "description": "The Business Email compromise - Financial fraud solution provides detection and response capabilities for business email compromise and financial fraud incidents.",
-                                "value": "Business Email compromise - Financial fraud"
+                                "label": "Business Email Compromise - Financial Fraud",
+                                "description": "The Business Email Compromise - Financial Fraud solution provides detection and response capabilities for business email compromise and financial fraud incidents.",
+                                "value": "Business Email Compromise - Financial Fraud"
                             },
                             {
-                                "label": "Cloud Identity threat protection essentials",
-                                "description": "The Cloud Identity threat protection essentials solution looks for most common cloud focused identity attacks such as Suspicious Sign-ins, privilege grants, MFA disable etc.",
-                                "value": "Cloud Identity threat protection essentials"
+                                "label": "Cloud Identity Threat Protection Essentials",
+                                "description": "The Cloud Identity Threat Protection Essentials solution looks for most common cloud focused identity attacks such as Suspicious Sign-ins, privilege grants, MFA disable etc.",
+                                "value": "Cloud Identity Threat Protection Essentials"
                             },
                             {
-                                "label": "Continuous Diagnostics& Mitigation",
-                                "description": "The Continuous Diagnostics& Mitigation solution provides continuous monitoring and mitigation capabilities for your IT infrastructure.",
-                                "value": "Continuous Diagnostics& Mitigation"
+                                "label": "Cloud Service Threat Protection Essentials",
+                                "description": "The Cloud Service Threat Protection Essentials contains security content that is relevant for detection of attacks against various cloud services like key vault, storage, compute etc.",
+                                "value": "Cloud Service Threat Protection Essentials"
                             },
                             {
-                                "label": "Endpoint threat protection essentials",
-                                "description": "The Endpoint threat protection essentials solution provides content to monitor, detect and investigate threats related to windows machines.",
-                                "value": "Endpoint threat protection essentials"
+                                "label": "Continuous Diagnostics & Mitigation",
+                                "description": "The Continuous Diagnostics & Mitigation solution provides continuous monitoring and mitigation capabilities for your IT infrastructure.",
+                                "value": "Continuous Diagnostics & Mitigation"
                             },
                             {
-                                "label": "Malware protection essentials",
-                                "description": "The Malware protection essentials solution provides protection against malware and helps detect and respond to malware-related incidents.",
-                                "value": "Malware protection essentials"
+                                "label": "Endpoint Threat Protection Essentials",
+                                "description": "The Endpoint Threat Protection Essentials solution provides content to monitor, detect and investigate threats related to windows machines.",
+                                "value": "Endpoint Threat Protection Essentials"
+                            },
+                            {
+                                "label": "Malware Protection Essentials",
+                                "description": "The Malware Protection Essentials solution provides protection against malware and helps detect and respond to malware-related incidents.",
+                                "value": "Malware Protection Essentials"
                             },
                             {
                                 "label": "Microsoft 365",
-                                "description": "The Microsoft 365 solution provides security and management capabilities for your Microsoft 365 environment.",
+                                "description": "",
                                 "value": "Microsoft 365"
                             },
                             {
@@ -480,13 +440,8 @@
                             },
                             {
                                 "label": "Microsoft Defender for Endpoint",
-                                "description": "The Microsoft Defender for Endpoint solution provides advanced threat protection for your endpoints.",
+                                "description": "",
                                 "value": "Microsoft Defender for Endpoint"
-                            },
-                            {
-                                "label": "Microsoft Defender for Office 365",
-                                "description": "The Microsoft Defender for Office 365 solution provides advanced threat protection for your Office 365 environment.",
-                                "value": "Microsoft Defender for Office 365"
                             },
                             {
                                 "label": "Microsoft Defender Threat Intelligence",
@@ -494,19 +449,9 @@
                                 "value": "Microsoft Defender Threat Intelligence"
                             },
                             {
-                                "label": "Microsoft Entra ID Protection",
-                                "description": "The Microsoft Entra ID Protection solution provides identity and access management capabilities to help secure your organization's resources.",
-                                "value": "Microsoft Entra ID Protection"
-                            },
-                            {
-                                "label": "Microsoft Exchange security for Exchange Online",
-                                "description": "The Microsoft Exchange security for Exchange Online solution provides security capabilities for your Exchange Online environment.",
-                                "value": "Microsoft Exchange security for Exchange Online"
-                            },
-                            {
-                                "label": "Microsoft Purview",
-                                "description": "The Microsoft Purview solution provides data discovery and classification capabilities for your organization's data.",
-                                "value": "Microsoft Purview"
+                                "label": "Microsoft Exchange Security for Exchange Online",
+                                "description": "The Microsoft Exchange Security for Exchange Online solution provides security capabilities for your Exchange Online environment.",
+                                "value": "Microsoft Exchange Security for Exchange Online"
                             },
                             {
                                 "label": "Microsoft Purview Information Protection",
@@ -514,9 +459,9 @@
                                 "value": "Microsoft Purview Information Protection"
                             },
                             {
-                                "label": "Cloud Service Threat Protection Essentials",
-                                "description": "The Cloud Service Threat Protection Essentials contains security content that is relevant for detection of attacks against various cloud services like key vault, storage, compute etc.",
-                                "value": "Cloud Service Threat Protection Essentials"
+                                "label": "Network Threat Protection Essentials",
+                                "description": "The Network Threat Protection Essentials solution contains queries that identifies suspicious network behavior based on various data sources ingested in Sentinel.",
+                                "value": "Network Threat Protection Essentials"
                             },
                             {
                                 "label": "Shodan",
@@ -525,248 +470,13 @@
                             },
                             {
                                 "label": "Teams",
-                                "description": "The Teams solution provides security and compliance capabilities for your Microsoft Teams environment.",
+                                "description": "",
                                 "value": "Teams"
                             },
                             {
-                                "label": "URLHaus",
-                                "description": "The URLHaus solution provides information about malicious URLs and helps protect against web-based threats.",
-                                "value": "URLHaus"
-                            },
-                            {
-                                "label": "Watchlist utilities",
-                                "description": "The Watchlist utilities solution provides capabilities to manage and monitor watchlists of entities and indicators.",
-                                "value": "Watchlist utilities"
-                            },
-                            {
-                                "label": "Insecure Protocols",
-                                "description": "The Insecure Protocols solution helps identify and remediate insecure protocols used in your network.",
-                                "value": "Insecure Protocols"
-                            },
-                            {
-                                "label": "Sentinel Costs",
-                                "description": "The Sentinel Costs solution provides insights and reports on the costs associated with your Azure Sentinel deployment.",
-                                "value": "Sentinel Costs"
-                            },
-                            {
-                                "label": "Sentinel Health",
-                                "description": "The Sentinel Health solution provides monitoring and health assessment capabilities for your Azure Sentinel deployment.",
-                                "value": "Sentinel Health"
-                            },
-                            {
-                                "label": "User and Entity behavior Analytics",
-                                "description": "The User and Entity behavior Analytics solution provides advanced analytics and insights into user and entity behavior.",
-                                "value": "User and Entity behavior Analytics"
-                            },
-                            {
-                                "label": "A client made a web request to a potentially harmful file (ASIM Web Session schema)",
-                                "description": "The A client made a web request to a potentially harmful file (ASIM Web Session schema) solution provides detection and response capabilities for web-based threats.",
-                                "value": "A client made a web request to a potentially harmful file (ASIM Web Session schema)"
-                            },
-                            {
-                                "label": "A host is potentially running a hacking tool (ASIM Web Session schema)",
-                                "description": "The A host is potentially running a hacking tool (ASIM Web Session schema) solution provides detection and response capabilities for potential hacking activities.",
-                                "value": "A host is potentially running a hacking tool (ASIM Web Session schema)"
-                            },
-                            {
-                                "label": "A host is potentially running PowerShell to send HTTP(S) requests (ASIM Web Session schema)",
-                                "description": "The A host is potentially running PowerShell to send HTTP(S) requests (ASIM Web Session schema) solution provides detection and response capabilities for PowerShell-based attacks.",
-                                "value": "A host is potentially running PowerShell to send HTTP(S) requests (ASIM Web Session schema)"
-                            },
-                            {
-                                "label": "Account created from non-approved sources",
-                                "description": "The Account created from non-approved sources solution provides detection and response capabilities for unauthorized account creations.",
-                                "value": "Account created from non-approved sources"
-                            },
-                            {
-                                "label": "ACSC Essential 8",
-                                "description": "The ACSC Essential 8 solution provides security content and resources based on the Australian Cyber Security Centre's Essential 8 strategies.",
-                                "value": "ACSC Essential 8"
-                            },
-                            {
-                                "label": "Add IP Entity To Named Location",
-                                "description": "The Add IP Entity To Named Location solution provides capabilities to add IP entities to named locations for better visibility and management.",
-                                "value": "Add IP Entity To Named Location"
-                            },
-                            {
-                                "label": "Addition of a Temporary Access Pass to a Privileged Account",
-                                "description": "The Addition of a Temporary Access Pass to a Privileged Account solution provides detection and response capabilities for temporary access pass additions to privileged accounts.",
-                                "value": "Addition of a Temporary Access Pass to a Privileged Account"
-                            },
-                            {
-                                "label": "Anomalous login followed by Teams action",
-                                "description": "The Anomalous login followed by Teams action solution provides detection and response capabilities for anomalous logins followed by Teams actions.",
-                                "value": "Anomalous login followed by Teams action"
-                            },
-                            {
-                                "label": "Anomalous Single Factor Signin",
-                                "description": "The Anomalous Single Factor Signin solution provides detection and response capabilities for anomalous single factor sign-ins.",
-                                "value": "Anomalous Single Factor Signin"
-                            },
-                            {
-                                "label": "Anomalous User Agent connection attempt",
-                                "description": "The Anomalous User Agent connection attempt solution provides detection and response capabilities for anomalous user agent connection attempts.",
-                                "value": "Anomalous User Agent connection attempt"
-                            },
-                            {
-                                "label": "Anomaly Sign In Event from an IP",
-                                "description": "The Anomaly Sign In Event from an IP solution provides detection and response capabilities for anomalous sign-in events from specific IP addresses.",
-                                "value": "Anomaly Sign In Event from an IP"
-                            },
-                            {
-                                "label": "Application ID URI Changed",
-                                "description": "The Application ID URI Changed solution provides detection and response capabilities for changes to application ID URIs.",
-                                "value": "Application ID URI Changed"
-                            },
-                            {
-                                "label": "Application Redirect URL Update",
-                                "description": "The Application Redirect URL Update solution provides detection and response capabilities for updates to application redirect URLs.",
-                                "value": "Application Redirect URL Update"
-                            },
-                            {
-                                "label": "Archiving, Basic Logs, and Retention",
-                                "description": "The Archiving, Basic Logs, and Retention solution provides capabilities for archiving, managing basic logs, and retention of data.",
-                                "value": "Archiving, Basic Logs, and Retention"
-                            },
-                            {
-                                "label": "ASC Compliance and Protection",
-                                "description": "The ASC Compliance and Protection solution provides compliance and protection capabilities for your Azure Security Center environment.",
-                                "value": "ASC Compliance and Protection"
-                            },
-                            {
-                                "label": "Audit policy manipulation using auditpol utility",
-                                "description": "The Audit policy manipulation using auditpol utility solution provides detection and response capabilities for audit policy manipulations using the auditpol utility.",
-                                "value": "Audit policy manipulation using auditpol utility"
-                            },
-                            {
-                                "label": "Authentication Attempt from New Country",
-                                "description": "The Authentication Attempt from New Country solution provides detection and response capabilities for authentication attempts from new countries.",
-                                "value": "Authentication Attempt from New Country"
-                            },
-                            {
-                                "label": "Authentications of Privileged Accounts Outside of Expected Controls",
-                                "description": "The Authentications of Privileged Accounts Outside of Expected Controls solution provides detection and response capabilities for authentications of privileged accounts outside of expected controls.",
-                                "value": "Authentications of Privileged Accounts Outside of Expected Controls"
-                            },
-                            {
-                                "label": "Azure AD Audit, Activity and Sign-in logs",
-                                "description": "The Azure AD Audit, Activity and Sign-in logs solution provides monitoring and auditing capabilities for your Azure AD environment.",
-                                "value": "Azure AD Audit, Activity and Sign-in logs"
-                            },
-                            {
-                                "label": "Azure CloudShell Usage",
-                                "description": "The Azure CloudShell Usage solution provides monitoring and auditing capabilities for your Azure CloudShell usage.",
-                                "value": "Azure CloudShell Usage"
-                            },
-                            {
-                                "label": "Azure Log Coverage",
-                                "description": "The Azure Log Coverage solution provides insights and reports on the log coverage of your Azure resources.",
-                                "value": "Azure Log Coverage"
-                            },
-                            {
-                                "label": "Brute force attack against user credentials (Uses Authentication Normalization)",
-                                "description": "The Brute force attack against user credentials (Uses Authentication Normalization) solution provides detection and response capabilities for brute force attacks against user credentials.",
-                                "value": "Brute force attack against user credentials (Uses Authentication Normalization)"
-                            },
-                            {
-                                "label": "Changes to Application Logout URL",
-                                "description": "The Changes to Application Logout URL solution provides detection and response capabilities for changes to application logout URLs.",
-                                "value": "Changes to Application Logout URL"
-                            },
-                            {
-                                "label": "Changes to Application Ownership",
-                                "description": "The Changes to Application Ownership solution provides detection and response capabilities for changes to application ownership.",
-                                "value": "Changes to Application Ownership"
-                            },
-                            {
-                                "label": "Changes to PIM Settings",
-                                "description": "The Changes to PIM Settings solution provides detection and response capabilities for changes to Privileged Identity Management (PIM) settings.",
-                                "value": "Changes to PIM Settings"
-                            },
-                            {
-                                "label": "Conditional Access Trends and Changes",
-                                "description": "The Conditional Access Trends and Changes solution provides insights and reports on the trends and changes in your conditional access policies.",
-                                "value": "Conditional Access Trends and Changes"
-                            },
-                            {
-                                "label": "Data collection health monitoring",
-                                "description": "The Data collection health monitoring solution provides monitoring and health assessment capabilities for your data collection processes.",
-                                "value": "Data collection health monitoring"
-                            },
-                            {
-                                "label": "Data Security - Sensitive Data Impact Assessment",
-                                "description": "The Data Security - Sensitive Data Impact Assessment solution provides capabilities to assess the impact of sensitive data exposures.",
-                                "value": "Data Security - Sensitive Data Impact Assessment"
-                            },
-                            {
-                                "label": "Detect PIM Alert Disabling activity",
-                                "description": "The Detect PIM Alert Disabling activity solution provides detection and response capabilities for PIM alert disabling activities.",
-                                "value": "Detect PIM Alert Disabling activity"
-                            },
-                            {
-                                "label": "Detecting Impossible travel with mailbox permission tampering & Privilege Escalation attempt",
-                                "description": "The Detecting Impossible travel with mailbox permission tampering & Privilege Escalation attempt solution provides detection and response capabilities for impossible travel with mailbox permission tampering and privilege escalation attempts.",
-                                "value": "Detecting Impossible travel with mailbox permission tampering & Privilege Escalation attempt"
-                            },
-                            {
-                                "label": "Email access via active sync",
-                                "description": "The Email access via active sync solution provides detection and response capabilities for email access via ActiveSync.",
-                                "value": "Email access via active sync"
-                            },
-                            {
-                                "label": "End-user consent stopped due to risk-based consent",
-                                "description": "The End-user consent stopped due to risk-based consent solution provides detection and response capabilities for end-user consent being stopped due to risk-based consent.",
-                                "value": "End-user consent stopped due to risk-based consent"
-                            },
-                            {
-                                "label": "External User Access Enabled",
-                                "description": "The External User Access Enabled solution provides detection and response capabilities for enabling external user access.",
-                                "value": "External User Access Enabled"
-                            },
-                            {
-                                "label": "Failed Login Attempt by Expired account",
-                                "description": "The Failed Login Attempt by Expired account solution provides detection and response capabilities for failed login attempts by expired accounts.",
-                                "value": "Failed Login Attempt by Expired account"
-                            },
-                            {
-                                "label": "Fake computer account created",
-                                "description": "The Fake computer account created solution provides detection and response capabilities for fake computer account creations.",
-                                "value": "Fake computer account created"
-                            },
-                            {
-                                "label": "Group created then added to built in domain local or global group",
-                                "description": "The Group created then added to built in domain local or global group solution provides detection and response capabilities for group creations followed by additions to built-in domain local or global groups.",
-                                "value": "Group created then added to built in domain local or global group"
-                            },
-                            {
-                                "label": "Guest Users Invited to Tenant by New Inviters",
-                                "description": "The Guest Users Invited to Tenant by New Inviters solution provides detection and response capabilities for guest users being invited to the tenant by new inviters.",
-                                "value": "Guest Users Invited to Tenant by New Inviters"
-                            },
-                            {
-                                "label": "High count of connections by client IP on many ports",
-                                "description": "The High count of connections by client IP on many ports solution provides detection and response capabilities for high counts of connections by client IP on multiple ports.",
-                                "value": "High count of connections by client IP on many ports"
-                            },
-                            {
-                                "label": "High count of failed attempts from same client IP",
-                                "description": "The High count of failed attempts from same client IP solution provides detection and response capabilities for high counts of failed attempts from the same client IP.",
-                                "value": "High count of failed attempts from same client IP"
-                            },
-                            {
-                                "label": "High count of failed logons by a user",
-                                "description": "The High count of failed logons by a user solution provides detection and response capabilities for high counts of failed logons by a user.",
-                                "value": "High count of failed logons by a user"
-                            },
-                            {
-                                "label": "High Number of Urgent Vulnerabilities Detected",
-                                "description": "The High Number of Urgent Vulnerabilities Detected solution provides detection and response capabilities for high numbers of urgent vulnerabilities detected.",
-                                "value": "High Number of Urgent Vulnerabilities Detected"
-                            },
-                            {
-                                "label": "High risk Office operation conducted by IP Address that recently attempted to log into a disabled account",
-                                "description": "The High risk Office operation conducted by IP Address that recently attempted to log into a disabled account solution provides detection and response capabilities for high-risk Office operations conducted by IP addresses that recently attempted to log into a disabled account.",
-                                "value": "High risk Office operation conducted by IP Address that recently attempted to log into a disabled account"
+                                "label": "URLhaus",
+                                "description": "The URLhaus solution provides information about malicious URLs and helps protect against web-based threats.",
+                                "value": "URLhaus"
                             }
                           ],
                           "required": false
@@ -992,7 +702,7 @@
                       "label": "Select the severity of the rules to enable",
                       "placeholder": "",
                       "multiselect": true,
-                      "defaultValue": [{"value": "High"}, {"value": "Medium"}],
+                      "defaultValue": [{"value": "High"}, {"value": "Medium"}, {"value": "Low"}, {"value": "informational"}],
                       "toolTip": "Select the data connectors that you would like to enable",
                       "constraints": {
                           "allowedValues": [
