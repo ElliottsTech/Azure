@@ -9,6 +9,7 @@
                 "description": "**Elliotts Tech Microsoft Sentinel All-In-One** deployment.",
                 "location": {
                     "label": "Location",
+                    "defaultValue": "australiaeast",
                     "toolTip": "Location for all resources",
                     "resourceTypes": [
                         "Microsoft.OperationalInsights/workspaces"
